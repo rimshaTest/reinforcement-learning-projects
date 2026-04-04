@@ -101,10 +101,11 @@ class biological_gene_network:
         policy = ['Nothing'] * 16
         count = 0
 
+        # Loop until the previous policy is equal to the current one
         while True:
             count += 1
 
-            # Policy Evaluation — exact solution using linear system
+            # Policy Evaluation
             # V^π = (I - γ * M(π))^(-1) * R(π)
             M_pi = np.array([self.transition_matrices[policy[i]][i] for i in range(16)])
             R_pi = np.array([self.reward_matrices[policy[i]][i] for i in range(16)])
